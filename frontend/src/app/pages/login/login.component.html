@@ -4,7 +4,7 @@
         <form [formGroup]="loginForm" (ngSubmit)="submit()">
             <p>
                 <mat-form-field>
-                    <input type="text" matInput placeholder="Username" formControlName="username">
+                    <input type="text" matInput placeholder="Username" formControlName="login">
                 </mat-form-field>
             </p>
 
@@ -15,7 +15,7 @@
             </p>
 
             <div>
-                <h4 class = "mat-subheading-1" *ngIf="loginForm.get('username')?.invalid && submitted">*Invalid username</h4>
+                <h4 class = "mat-subheading-1" *ngIf="loginForm.get('login')?.invalid && submitted">*Invalid username</h4>
                 <h4 class = "mat-subheading-1" *ngIf="loginForm.get('password')?.invalid && submitted">*Invalid password</h4>
             </div>
 

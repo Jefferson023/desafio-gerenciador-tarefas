@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AuthorizationGuard } from './shared/guard/authorization.guard';
@@ -7,6 +8,7 @@ import { AuthorizationGuard } from './shared/guard/authorization.guard';
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
+  { path: '', redirectTo: 'tarefas', pathMatch: 'full'},
   {
     path: '',
     canActivate: [AuthorizationGuard],

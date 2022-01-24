@@ -25,6 +25,7 @@
                 <h4 class = "mat-subheading-1" *ngIf="signForm.get('name')?.invalid && submitted">*Invalid name</h4>
                 <h4 class = "mat-subheading-1" *ngIf="signForm.get('username')?.invalid && submitted">*Invalid username</h4>
                 <h4 class = "mat-subheading-1" *ngIf="signForm.get('password')?.invalid && submitted">*Invalid password</h4>
+                <h4 style = "color: green !important" class= "mat-subheading-1" *ngIf="success && submitted">*User registered successfully</h4>
             </div>
 
             <div class="button-signup">

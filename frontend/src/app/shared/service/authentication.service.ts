@@ -10,11 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class AuthenticationService {
 
-  authURL= environment.apiURL + "/auth";
+  private authURL= environment.apiURL + "auth";
   constructor(private http: HttpClient) { }
 
-  public login(login: string, password: string) : Observable<ResponseAuth> {
-    return this.http.post<ResponseAuth>(this.authURL, {login: login, password: password}).pipe(map(res => {
+  public login(body: any) : Observable<ResponseAuth> {
+    return this.http.post<ResponseAuth>(this.authURL, body).pipe(map(res => {
       localStorage.setItem("bearerToken", res.token);
       return res;
     }))
