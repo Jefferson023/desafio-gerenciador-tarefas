@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-title>Sign Up</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="signForm" (ngSubmit)="submit()">
+
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Name" formControlName="name">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Username" formControlName="username">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input type="password" matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+            </p>
+
+            <div>
+                <h4 class = "mat-subheading-1" *ngIf="signForm.get('name')?.invalid && submitted">*Invalid name</h4>
+                <h4 class = "mat-subheading-1" *ngIf="signForm.get('username')?.invalid && submitted">*Invalid username</h4>
+                <h4 class = "mat-subheading-1" *ngIf="signForm.get('password')?.invalid && submitted">*Invalid password</h4>
+            </div>
+
+            <div class="button-signup">
+                <button type="submit" mat-raised-button color="primary">Sign Up</button>
+            </div>
+
+            <div class="login">
+                <a [routerLink]="['/login']">Login</a>
+            </div>
+
+        </form>
+
+    </mat-card-content>
+</mat-card>

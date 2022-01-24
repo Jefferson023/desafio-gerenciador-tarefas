@@ -1,0 +1,30 @@
+:host {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+}
+
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+    display: flex;
+    justify-content: center;
+}
+
+.button-login {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.signup {
+    display: flex;
+    justify-content: flex-start;
+}
+
+h4 {
+    color: crimson;
+}
