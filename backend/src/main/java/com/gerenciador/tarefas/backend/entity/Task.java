@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.gerenciador.tarefas.backend.entity.enums.Prioridade;
+import com.gerenciador.tarefas.backend.entity.enums.Situacao;
 
 import lombok.Data;
 
@@ -36,5 +37,6 @@ public class Task implements Serializable{
 	@ManyToOne
 	private User responsavel;
 	
-	private boolean concluida;
+	@Enumerated(EnumType.STRING)
+	private Situacao situacao;
 }

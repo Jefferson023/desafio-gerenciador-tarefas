@@ -1,1 +1,107 @@
-teste
+<div style = "padding-left: 40px; padding-right: 40px;">
+    <h1>Listagem de Tarefas</h1>
+
+    <form [formGroup]="searchForm" (ngSubmit)="submit()">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <label for="numero" class="control-label col-sm-2">Número:</label>
+                    <div class="col-3">
+                        <input class="form-control" formControlName= "numero" id="numero">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group row">
+                    <label for="tituloDesc" class="control-label col-sm-2">Título/descrição:</label>
+                    <div class="col-8">
+                        <input style = "width: 100%" formControlName="tituloDescricao" class="form-control" id="tituloDesc">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="form-group row">
+                    <label for="responsavel" class="control-label col-sm-6 pt-3">Responsável:</label>
+                    <mat-form-field id ="responsavel" appearance="fill" class="col-6">
+                        <mat-select formControlName="responsavel">
+                            <mat-option [value]="''">Nenhum</mat-option>
+                            <mat-option *ngFor="let responsavel of responsavelList" [value]="responsavel.username">
+                                {{responsavel.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group row">
+                    <label style = "padding-left: 100px;" class="control-label col-sm-6 pt-3">Situação:</label>
+                    <mat-form-field appearance="fill" class="col-6 ">
+                        <mat-select formControlName="situacao">
+                            <mat-option [value]="''">Nenhum</mat-option>
+                            <mat-option *ngFor="let situacao of situacaoList" [value]="situacao.value">
+                                {{situacao.key}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Buscar Tarefas</button>
+            </div>
+        </div>
+
+
+    </form>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="taskList" style="width: 100%;">
+
+            <ng-container matColumnDef="numero">
+                <th mat-header-cell *matHeaderCellDef>
+                    <h3>Número</h3>
+                </th>
+                <td mat-cell *matCellDef="let task"> {{task.numero}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="titulo">
+                <th mat-header-cell *matHeaderCellDef>
+                    <h3>Título</h3>
+                </th>
+                <td mat-cell *matCellDef="let task"> {{task.titulo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="responsavel">
+                <th mat-header-cell *matHeaderCellDef>
+                    <h3>Responsável</h3>
+                </th>
+                <td mat-cell *matCellDef="let task"> {{task.responsavel.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="acoes">
+                <th mat-header-cell *matHeaderCellDef>
+                    <h3>Ações</h3>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <a href="javascript:void(0);" (click)="editTask(element)">Editar | </a>
+                    <a href="javascript:void(0);" (click)="deleteTask(element)">Remover</a>
+                    <a *ngIf="element.situacao != SITUACAO_CONCLUIDA" href="javascript:void(0);" (click)="concluirTask(element)"> | Concluir</a>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-card *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center">
+            <mat-progress-spinner 
+              color="primary" 
+              mode="indeterminate">
+            </mat-progress-spinner>
+        </mat-card>
+
+        <mat-paginator [length] = "length" (page)="paginate($event)" [pageSizeOptions]="[5, 10, 30]" showFirstLastButtons>
+        </mat-paginator>
+
+    </div>
+</div>

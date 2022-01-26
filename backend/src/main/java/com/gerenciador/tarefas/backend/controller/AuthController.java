@@ -39,9 +39,12 @@ public class AuthController {
 	public AuthResponseDto login(@Valid @RequestBody AuthRequestDto authReqDto) {
 		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = 
 				new UsernamePasswordAuthenticationToken(authReqDto.getLogin(), authReqDto.getPassword());
-
+		System.out.println(usernamePasswordAuthenticationToken);
+		System.out.println("entrou");
 		Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
-
+		
+		System.out.println(authentication);
+	
 		return tokenService.createResponseAuthToken(authentication);
 	}
 }

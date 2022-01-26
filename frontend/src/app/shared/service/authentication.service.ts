@@ -24,6 +24,10 @@ export class AuthenticationService {
     localStorage.removeItem("bearerToken");
   }
   
+  public getToken(){
+    return localStorage.getItem("bearerToken");
+  }
+  
   public isLogged() {
     let token = localStorage.getItem('bearerToken');
     if (token && token.length > 0) {

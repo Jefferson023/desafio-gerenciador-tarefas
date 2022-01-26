@@ -11,9 +11,5 @@ export const rotas: ModuleWithProviders<RouterModule> = RouterModule.forChild([
     {
         path: `cadastro`,
         component: CadastroComponent,
-    },
-    {
-         path: `cadastro/:id`,
-         component: CadastroComponent,
     }
 ]);

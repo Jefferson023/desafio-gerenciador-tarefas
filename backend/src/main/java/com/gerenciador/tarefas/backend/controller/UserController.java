@@ -29,6 +29,7 @@ public class UserController {
 	
 	private final UserService userService;
 	
+	@PreAuthorize("!isAuthenticated()")
 	@ApiOperation(value = "Insere um novo usuário no banco de dados")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Retorna o usuário inserido"),
 			@ApiResponse(code = 409, message = "O usuario já existe")})

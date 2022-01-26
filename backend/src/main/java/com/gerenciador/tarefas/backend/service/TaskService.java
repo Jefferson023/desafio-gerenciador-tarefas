@@ -10,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.gerenciador.tarefas.backend.dto.TaskDto;
 import com.gerenciador.tarefas.backend.entity.Task;
+import com.gerenciador.tarefas.backend.entity.enums.Situacao;
 import com.gerenciador.tarefas.backend.repository.TaskRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -42,10 +43,11 @@ public class TaskService {
 	}
 	
 	public Page<Task> searchTask(Long numero, String tituloDescricao, String responsavel, 
-			boolean concluida, int page, int size) {
+			Situacao situacao, int page, int size) {
 		var pageable = PageRequest.of(page, size, Sort.by("deadline").descending());
 		tituloDescricao = "%" + tituloDescricao + "%";
-		return taskRepository.paginateSearch(numero, tituloDescricao, responsavel, concluida, pageable);
+		return taskRepository.paginateSearch(numero, tituloDescricao, responsavel,
+				situacao != null ? situacao.getDescricao() : null, pageable);
 	}
 
 }

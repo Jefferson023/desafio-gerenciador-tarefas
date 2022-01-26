@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gerenciador.tarefas.backend.dto.TaskDto;
 import com.gerenciador.tarefas.backend.entity.Task;
+import com.gerenciador.tarefas.backend.entity.enums.Situacao;
 import com.gerenciador.tarefas.backend.service.TaskService;
 
 import io.swagger.annotations.ApiOperation;
@@ -56,12 +57,12 @@ public class TaskController {
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
 	public Page<Task> searchTask(@RequestParam(required = false) Long numero, 
-			@RequestParam(required = false) String tituloDescricao, 
+			@RequestParam(defaultValue = "") String tituloDescricao, 
 			@RequestParam(required = false) String responsavel, 
-			@RequestParam(required = false) boolean concluida, 
+			@RequestParam(required = false) Situacao situacao, 
 			@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size){
 		
-		return taskService.searchTask(numero, tituloDescricao, responsavel, concluida, page, size);
+		return taskService.searchTask(numero, tituloDescricao, responsavel, situacao, page, size);
 	}
 	
 	@ApiOperation(value = "Remove uma tarefa cadastrada no banco")

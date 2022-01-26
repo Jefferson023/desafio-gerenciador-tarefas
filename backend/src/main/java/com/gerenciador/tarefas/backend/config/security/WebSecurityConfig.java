@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	/** lista de páginas da API que poderão ser acessadas sem auteticação **/
     private static final String[] AUTH_WHITELIST = {
-            "/auth", "/user"
+            "/auth", "/users"
     };
     
 	@Override

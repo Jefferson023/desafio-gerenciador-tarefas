@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthenticationService } from './service/authentication.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthorizationGuard } from './guard/authorization.guard';
+import { HeaderInterceptor } from './Interceptors/header.interceptor';
 
 @NgModule({
   declarations: [],
@@ -11,7 +12,12 @@ import { AuthorizationGuard } from './guard/authorization.guard';
     HttpClientModule
   ], providers: [
     AuthenticationService,
-    AuthorizationGuard
+    AuthorizationGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
+      multi: true,
+    }
   ]
 })
 export class SharedModule { }
