@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import com.gerenciador.tarefas.backend.entity.User;
 import com.gerenciador.tarefas.backend.entity.enums.Prioridade;
+import com.gerenciador.tarefas.backend.entity.enums.Situacao;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -43,6 +44,6 @@ public class TaskDto {
 	@NotNull(message="O responsável da tarefa não pode ser null")
 	private User responsavel;
 	
-    @ApiModelProperty(example = "true",value = "Se a tarefa foi concluída ou não")
-	private boolean concluida;
+    @ApiModelProperty(example = "Concluida",value = "Se a tarefa foi concluída ou não")
+	private Situacao situacao;
 }

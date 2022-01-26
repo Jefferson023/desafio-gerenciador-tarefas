@@ -24,7 +24,9 @@ public class TaskService {
 	private final ModelMapper modelMapper;
 	
 	public Task insertTask(TaskDto taskDto) {
-		return taskRepository.save(modelMapper.map(taskDto, Task.class));
+		var task = modelMapper.map(taskDto, Task.class);
+		task.setSituacao(Situacao.EM_ANDAMENTO);
+		return taskRepository.save(task);
 	}
 	
 	public Task updateTask(TaskDto taskDto) {
@@ -44,10 +46,9 @@ public class TaskService {
 	
 	public Page<Task> searchTask(Long numero, String tituloDescricao, String responsavel, 
 			Situacao situacao, int page, int size) {
-		var pageable = PageRequest.of(page, size, Sort.by("deadline").descending());
+		var pageable = PageRequest.of(page, size, Sort.by("numero").ascending());
 		tituloDescricao = "%" + tituloDescricao + "%";
-		return taskRepository.paginateSearch(numero, tituloDescricao, responsavel,
-				situacao != null ? situacao.getDescricao() : null, pageable);
+		return taskRepository.paginateSearch(numero, tituloDescricao, responsavel, situacao, pageable);
 	}
 
 }

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @AllArgsConstructor
 public enum Prioridade {
-    	@JsonProperty("Alta")
+    @JsonProperty("Alta")
 	ALTA("Alta"),
 	@JsonProperty("Média")
 	MEDIA("Média"),

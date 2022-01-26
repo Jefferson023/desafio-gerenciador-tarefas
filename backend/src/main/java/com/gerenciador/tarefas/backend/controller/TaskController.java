@@ -58,7 +58,7 @@ public class TaskController {
 	@ResponseStatus(code = HttpStatus.OK)
 	public Page<Task> searchTask(@RequestParam(required = false) Long numero, 
 			@RequestParam(defaultValue = "") String tituloDescricao, 
-			@RequestParam(required = false) String responsavel, 
+			@RequestParam(defaultValue = "") String responsavel, 
 			@RequestParam(required = false) Situacao situacao, 
 			@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size){
 		

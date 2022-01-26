@@ -12,9 +12,9 @@ public interface TaskRepository extends CrudRepository<Task, Long>{
 	final String QUERY_STRING = "SELECT t FROM Task t WHERE "
 			+ "(:numero IS NULL OR t.numero = :numero)"
 			+ " AND UPPER(concat(t.titulo, ' ', t.descricao)) LIKE UPPER(:tituloDescricao)"
-			+ " AND (:responsavel IS NULL OR t.responsavel.username = :responsavel)"
+			+ " AND (:responsavel = '' OR t.responsavel.username = :responsavel)"
 			+ " AND (:situacao IS NULL OR t.situacao = :situacao)";
 	@Query(value = QUERY_STRING)
 	Page<Task> paginateSearch(Long numero, String tituloDescricao, String responsavel, 
-			String situacao, Pageable pageable);
+			Situacao situacao, Pageable pageable);
 }
