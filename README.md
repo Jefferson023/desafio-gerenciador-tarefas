@@ -16,7 +16,7 @@ Você pode executar o back-end utilizando uma IDE como o EclipseIDE ou Intellij 
 ```
 #back-end
 cd desafio-gerenciador-tarefas/backend
-java -jar dock/target/dock-0.0.1-SNAPSHOT.jar
+java -jar target/backend-0.0.1-SNAPSHOT.jar
 
 #fron-tend
 cd desafio-gerenciador-tarefas/frontend
