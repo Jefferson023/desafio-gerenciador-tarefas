@@ -39,7 +39,8 @@ export class CadastroComponent {
       descricao: new FormControl(task?.descricao || '', [Validators.required]),
       responsavel: new FormControl(task?.responsavel || '', [Validators.required]),
       prioridade: new FormControl(task?.prioridade || '', [Validators.required]),
-      deadline: new FormControl(task?.deadline || '', [ValidateDeadline])
+      deadline: new FormControl(task?.deadline || '', [ValidateDeadline]),
+      situacao: new FormControl(task?.situacao || '')
     });
 
     this.userService.getUsers().subscribe(res => {
