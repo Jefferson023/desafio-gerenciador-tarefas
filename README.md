@@ -4,7 +4,7 @@ O projeto é divido entre o front-End em Angular 13 e o back-end uma API REST em
 
 ## Pré-requisitos
 * Java 11 (JDK).
-* git (https://git-scm.com/)
+* Git
 * NPM 
 * Node
 * Angular/cli 13
