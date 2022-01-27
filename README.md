@@ -9,7 +9,7 @@ O projeto é divido entre o front-End em Angular 13 e o back-end uma API REST em
 * Node
 * Angular/cli 13
 
-## Rodando o projeto localmente
+## Rodando o projeto
 ### Manual
 Você pode executar o back-end utilizando uma IDE como o EclipseIDE ou Intellij desde que estejam devidamente configurados para o Java 11 e [Lombok](https://projectlombok.org/). E o front-end no VScode. O projeto também pode ser executado via linha de comando seguindo os comandos mostrados abaixo. 
 
