@@ -25,10 +25,10 @@ ng s --configuration=production
 ### Docker
 Para quem tem o [Docker](https://www.docker.com/) instalado é possível rodar o front e o back com um banco de dados local utilizado os comandos abaixo:
 ```
-#back-end
 cd desafio-gerenciador-tarefas/
 docker-compose up --build -d
 ```
+
 ### Heroku
 Uma versão da aplicação também se encontra funcionando na seguinte URL https://desafio-gerenciador-tarefas.herokuapp.com/ (front-end) e https://gerenciador-tarefa-backend.herokuapp.com/ (back-end)
 Também é valido considerar que a cada alguns minutos o Heroku coloca as aplicações para dormir, o que pode atrasar algumas requisições.
