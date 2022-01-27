@@ -3,11 +3,11 @@ Gerenciador de Tarefas feito em Angular + Java para o desafio técnico da empres
 O projeto é divido entre o front-End em Angular 13 e o back-end uma API REST em Spring Boot.
 
 ## Pré-requisitos
-* Java 11 or mais recente (JDK).
+* Java 11 (JDK).
 * git (https://git-scm.com/)
 * NPM 
 * Node
-* Angular/cli
+* Angular/cli 13
 
 ## Rodando o projeto localmente
 ### Manual
