@@ -1,4 +1,4 @@
-# desafio-gerenciador-tarefas
+# Desafio Gerenciador de Tarefas 
 Gerenciador de Tarefas feito em Angular + Java para o desafio técnico da empresa ESIG. Oferece um controle de tarefas onde é possível adicionar, editar, excluir, concluir e listar tarefas. Também é possível logar e criar novas contas. 
 O projeto é divido entre o front-End em Angular 13 e o back-end uma API REST em Spring Boot.
 
